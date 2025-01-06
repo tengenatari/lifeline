@@ -1,6 +1,12 @@
-.Test {
-  font-size: 20px;
-  text-align: center;
-  color: red; }
+._navbar {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center; }
+  ._navbar ._navbar-item {
+    text-decoration: none;
+    color: #5e5e5e;
+    font: 100%;
+    padding: 10px;
+    border-style: solid; }
 
 /*# sourceMappingURL=main.css.map */
