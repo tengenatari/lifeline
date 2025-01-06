@@ -1,12 +1,19 @@
+{% load sass_tags %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    <link href="{% sass_src 'sass/main.sass' %}" rel="stylesheet" type="text/css"/>
     <title>Линия Жизни</title>
 </head>
 <body>
-    {% block body %}
-        
-    {% endblock body %}
+    <header>
+        <div class="header_container">
+            <p class="Test">Test</p>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    <header>
 </body>
 </html>
