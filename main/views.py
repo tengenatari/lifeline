@@ -5,7 +5,7 @@ from django.views.decorators.cache import cache_control
 from django.views.decorators.http import require_GET
 
 def index(request):
-    return render(request, 'base.html')
+    return render(request, 'index.html')
 
 @require_GET
 @cache_control(max_age=60 * 60 * 24, immutable=True, public=True)  # one day
