@@ -1,10 +1,6 @@
 {% load sass_tags %}
+{% load static %}
 <!DOCTYPE HTML>
-<!--
-	Telephasic by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html lang="ru">
 	<head>
 		{% load bootstrap5 %}
@@ -16,13 +12,12 @@
 	</head>
 	<body class="homepage is-preload">
 		<div id="page-wrapper">
-
 			<!-- Header -->
 				<div id="header-wrapper">
 					<div id="header" class="container">
 
 						<!-- Logo -->
-							<h1 id="logo"><a href="index.html">Игра го в Тюмени</a></h1>
+							<h1 id="logo"><a href="/news">Игра го в Тюмени</a></h1>
 
 						<!-- Nav -->
 							<nav id="nav">
@@ -30,12 +25,10 @@
 									<li><a href="/players">Игроки</a></li>
 									<li><a href="/tournaments">Турниры</a></li>
 									<li class="break"><a href="/clubs">Клубы</a></li>
-									<li><a href="/about">О федерации</a></li>
+									<li><a href="/about">Об отделении</a></li>
 								</ul>
 							</nav>
-
 					</div>
-
 					<!-- Hero -->
 						<section id="hero" class="container">
 							<header>
@@ -48,34 +41,31 @@
 							подзаголовок</p>
 						</section>
 				</div>
-
 			<!-- Features 1 -->
 				<div class="wrapper">
 					<div class="container">
-						<div class="row">
-							<section class="feature">
-								<div class="image-wrapper first">
-									<a href="#" class="image featured first"><img src="images/pic01.jpg" alt="" /></a>
-								</div>
-								<header>
-									<h2>Новость 1</h2>
-								</header>
-								<p>Lorem ipsum dolor sit amet consectetur et sed adipiscing elit. Curabitur vel
-								sem sit dolor neque semper magna. Lorem ipsum dolor sit amet consectetur et sed
-								adipiscing elit. Curabitur vel sem sit.</p>
-							</section>
-							<section class="feature">
-								<div class="image-wrapper">
-									<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
-								</div>
-								<header>
-									<h2>Новость 2</h2>
-								</header>
-								<p>Lorem ipsum dolor sit amet consectetur et sed adipiscing elit. Curabitur vel
-								sem sit dolor neque semper magna. Lorem ipsum dolor sit amet consectetur et sed
-								adipiscing elit. Curabitur vel sem sit.</p>
-							</section>
-						</div>
+						<section class="feature">
+							<header>
+								<h2>Новость 1</h2>
+							</header>
+							<div class="image-wrapper first">
+								<a href="#" class="image featured first"><img src="{% static 'images/pic01.jpg' %}" alt="" /></a>
+							</div>
+							<p>Lorem ipsum dolor sit amet consectetur et sed adipiscing elit. Curabitur vel
+							sem sit dolor neque semper magna. Lorem ipsum dolor sit amet consectetur et sed
+							adipiscing elit. Curabitur vel sem sit.</p>
+						</section>
+						<section class="feature">
+							<header>
+								<h2>Новость 2</h2>
+							</header>
+							<div class="image-wrapper">
+								<a href="#" class="image featured"><img src="{% static 'images/pic03.jpg' %}" alt="" /></a>
+							</div>
+							<p>Lorem ipsum dolor sit amet consectetur et sed adipiscing elit. Curabitur vel
+							sem sit dolor neque semper magna. Lorem ipsum dolor sit amet consectetur et sed
+							adipiscing elit. Curabitur vel sem sit.</p>
+						</section>
 					</div>
 				</div>
 			<!-- Footer -->
@@ -86,16 +76,13 @@
 						</ul>
 					</div>
 				</div>
-
 		</div>
-
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
+			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.dropotron.min.js' %}"></script>
+			<script src="{% static 'assets/js/browser.min.js' %}"></script>
+			<script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'assets/js/util.js' %}"></script>
+			<script src="{% static 'assets/js/main.js' %}"></script>
 	</body>
 </html>
