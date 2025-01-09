@@ -1763,4 +1763,12 @@ button:hover, .button:hover {
   #content, #sidebar {
     margin-bottom: 2em; } }
 
+.news-header {
+  display: flex;
+  justify-content: space-between; }
+
+.news-text {
+  font-size: xx-large;
+  text-align: justify; }
+
 /*# sourceMappingURL=main.css.map */

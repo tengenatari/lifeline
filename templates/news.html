@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+{% load static %}
+{% block title %}
+    <h2>Здесь должен быть какой-то заголовок
+    <br />
+    я пока не придумал</h2>
+{% endblock title %}
+
+{% block subtitle %}
+    <p>И ещё может быть
+    <br />
+    подзаголовок</p>
+{% endblock subtitle %}
+
+{% block content %}				
+    <section class="feature">
+        <header>
+            <div class="news-header">
+                <div><h2>Новость 1</h2></div>
+                <div><h2>21 января 2025</h2></div>
+            </div>
+        </header>
+        <div class="image-wrapper first">
+            <a class="image featured first"><img src="{% static 'images/pic01.jpg' %}" alt="" /></a>
+        </div>
+        <p class="news-text">Lorem ipsum dolor sit amet consectetur et sed adipiscing elit. Curabitur vel
+        sem sit dolor neque semper magna. Lorem ipsum dolor sit amet consectetur et sed
+        adipiscing elit. Curabitur vel sem sit.</p>
+    </section>
+{% endblock content %}
+							
