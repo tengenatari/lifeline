@@ -1,11 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.conf import settings
 from django.http import FileResponse, HttpRequest, HttpResponse
 from django.views.decorators.cache import cache_control
 from django.views.decorators.http import require_GET
 
 def index(request):
-    return news(request)
+    return redirect("/news")
 
 def players(request):
     return render(request, 'players.html')
