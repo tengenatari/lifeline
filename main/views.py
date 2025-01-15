@@ -9,10 +9,6 @@ def index(request):
     return redirect("/news")
 
 
-def players(request):
-    return render(request, 'players.html')
-
-
 def tournaments(request):
     return render(request, 'tournaments.html')
 
