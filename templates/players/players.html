@@ -7,22 +7,31 @@
 {% endblock title %}
 
 {% block subtitle %}
-    <p>Тюменского обсластного отделения</p>
+    <p>Тюменского областного отделения
+        <br />
+        Российской федерации го
+    </p>
 {% endblock subtitle %}
 
 {% block content %}
     <section class="feature">
-        <table class = "Table">
-            <tr>
+        <table class="Table">
+            <tr class="table-header">
+                <td>№</td>
                 <td>Фамилия и имя</td>
                 <td>Ранг</td>
                 <td>Рейтинг</td>
+                <td>Турниры</td>
+                <td>Игры</td>
             </tr>
             {% for row in data %}
             <tr>
+                <td>{{row.index}}</td>
                 <td>{{row.name}}</td>
                 <td>{{row.rang}}</td>
-                <td><a href={{row.href}}>{{row.raiting}}</a></td>
+                <td><a href={{row.player_url}}>{{row.raiting}}</td>
+                <td>{{row.tournaments_plays}}</td>
+                <td>{{row.games}}</td>
             </tr>
             {% endfor %}
         </table>
