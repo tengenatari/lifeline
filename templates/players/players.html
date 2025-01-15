@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block title %}
+    <h2>Спортсмены</h2>
+{% endblock title %}
+
+{% block subtitle %}
+    <p>Тюменского обсластного отделения</p>
+{% endblock subtitle %}
+
+{% block content %}
+    <section class="feature">
+        <table class = "Table">
+            <tr>
+                <td>Фамилия и имя</td>
+                <td>Ранг</td>
+                <td>Рейтинг</td>
+            </tr>
+            {% for row in data %}
+            <tr>
+                <td>{{row.name}}</td>
+                <td>{{row.rang}}</td>
+                <td><a href={{row.href}}>{{row.raiting}}</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </section>
+{% endblock content %}

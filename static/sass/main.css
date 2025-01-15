@@ -1771,4 +1771,36 @@ button:hover, .button:hover {
   font-size: xx-large;
   text-align: justify; }
 
+.Table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 100%;
+  border-radius: 2px;
+  border-collapse: collapse;
+  padding: 10px; }
+  .Table tr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    border: 1px solid #42aaff;
+    border-radius: 10px;
+    height: 120px;
+    width: 100%;
+    margin-top: 8px; }
+  .Table td {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10%;
+    padding: 10px 10px;
+    flex-basis: 100%;
+    min-width: 150px;
+    min-height: 100px;
+    text-decoration: none;
+    margin-left: 10px;
+    margin-right: 10px; }
+
 /*# sourceMappingURL=main.css.map */
