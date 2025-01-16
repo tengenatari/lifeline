@@ -6,13 +6,6 @@
     <h2>Спортсмены</h2>
 {% endblock title %}
 
-{% block subtitle %}
-    <p>Тюменского областного отделения
-        <br />
-        Российской федерации го
-    </p>
-{% endblock subtitle %}
-
 {% block content %}
     <section class="feature">
         <table class="Table">
@@ -28,10 +21,10 @@
             {% for row in data %}
             <tr>
                 <td>{{row.index}}</td>
-                <td>{{row.name}}</td>
+                <td><a href={{row.player_url}}>{{row.name}}</a></td>
                 <td>{{row.town}}</td>
                 <td>{{row.rang}}</td>
-                <td><a href={{row.player_url}}>{{row.raiting}}</td>
+                <td>{{row.raiting}}</td>
                 <td>{{row.tournaments_plays}}</td>
                 <td>{{row.games}}</td>
             </tr>

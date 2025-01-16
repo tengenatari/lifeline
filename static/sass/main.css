@@ -181,6 +181,8 @@ section > :last-child, article > :last-child, section:last-child, article:last-c
 
 header {
   margin-bottom: 1.5em; }
+  header > h2 {
+    font-weight: 400; }
   header > p {
     display: block;
     color: #f35858;
@@ -1230,24 +1232,19 @@ button:hover, .button:hover {
     top: 0;
     z-index: 1;
     box-shadow: inset 0px 0px 0px 1px #e8e8e8;
-    background: #f6f8fb url("images/image-wrapper.svg"); }
+    background: #f6f8fb; }
 
 #header-wrapper {
   position: relative;
   padding: 4em 0 2em 0;
-  background-image: url("images/header.svg");
-  background-image: url("images/overlay.png"), url("images/header.svg"), -moz-linear-gradient(75deg, #70e2ff 15%, #7072ff 55%);
-  background-image: url("images/overlay.png"), url("images/header.svg"), -webkit-linear-gradient(75deg, #70e2ff 15%, #7072ff 55%);
-  background-image: url("images/overlay.png"), url("images/header.svg"), -ms-linear-gradient(75deg, #70e2ff 15%, #7072ff 55%);
-  background-image: url("images/overlay.png"), url("images/header.svg"), linear-gradient(75deg, #70e2ff 15%, #7072ff 55%);
+  background-image: linear-gradient(75deg, #70e2ff 15%, #7072ff 55%);
   background-color: #89caf0;
-  background-size: 100% 620%;
-  background-size: 128px 128px, 100% 620%, auto;
-  background-repeat: repeat, no-repeat, no-repeat; }
+  background-repeat: no-repeat;
+  background-position: center; }
 
 .homepage #header-wrapper {
-  padding: 10em 0 6em 0;
-  background-size: 128px 128px, 100% 100%, auto; }
+  padding: 6em 0 2em 0;
+  background-size: 100% 100%, auto; }
 
 /* Header */
 #logo {
@@ -1291,6 +1288,7 @@ button:hover, .button:hover {
       #nav > ul > li > ul {
         display: none; }
       #nav > ul > li > span, #nav > ul > li > a {
+        font-weight: 400;
         color: #fff;
         text-decoration: none;
         outline: 0;
@@ -1414,7 +1412,7 @@ button:hover, .button:hover {
   #header-wrapper {
     padding: 2em 0 2em 0; }
   .homepage #header-wrapper {
-    padding: 8em 0 4em 0; }
+    padding: 6em 0 2em 0; }
   #promo-wrapper, #footer-wrapper {
     padding: 5em 0 5em 0; } }
 
@@ -1436,7 +1434,7 @@ button:hover, .button:hover {
   #header-wrapper {
     padding: 5em 0 1em 0; }
   .homepage #header-wrapper {
-    padding: 5em 0 4em 0; }
+    padding: 4em 0 2em 0; }
   #promo-wrapper {
     padding: 2em; }
   #footer-wrapper {
@@ -1547,7 +1545,7 @@ button:hover, .button:hover {
     padding: 3em 20px 20px 20px;
     text-align: center; }
   .homepage #header-wrapper {
-    padding: 3em 20px 3em 20px; }
+    padding: 2em 20px 2em 20px; }
   /* Header */
   #logo {
     position: relative; }
@@ -1645,10 +1643,10 @@ button:hover, .button:hover {
     -webkit-transition: -webkit-transform 0.5s ease;
     -ms-transition: -ms-transform 0.5s ease;
     transition: transform 0.5s ease;
-    background-image: url("images/overlay.png"), url("images/navPanel.svg"), -moz-linear-gradient(top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.25));
-    background-image: url("images/overlay.png"), url("images/navPanel.svg"), -webkit-linear-gradient(top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.25));
-    background-image: url("images/overlay.png"), url("images/navPanel.svg"), -ms-linear-gradient(top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.25));
-    background-image: url("images/overlay.png"), url("images/navPanel.svg"), linear-gradient(top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.25));
+    background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.25));
+    background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.25));
+    background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.25));
+    background-image: linear-gradient(top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.25));
     display: block;
     left: 0;
     overflow-y: auto;
