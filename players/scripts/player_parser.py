@@ -22,18 +22,26 @@ def get_players_df(driver, valid_city):
         
         WebDriverWait(driver, 25).until(EC.presence_of_element_located((By.XPATH, table_xpath)))
         soup = BeautifulSoup(driver.page_source, 'html.parser')
+        with open('test.html', "w", encoding='utf-8') as f:
+            f.write(driver.page_source)
+            f.close()
         table = soup.find("tbody")
         rows = table.find_all('tr')
-        table = [row.find_all('td') for row in rows]
         
-        id = [row[1].find('a', {"class": ""})["href"].split('/')[-1] for row in table]
-        name = [row[1].find('a', {"class": ""}).text for row in table]
-        city = [row[2].text for row in table]
+        df = pd.DataFrame({"name": [], "city": []})
+        for row in rows:
+            cells = row.find_all('td')
+            id = cells[1].find('a', {"class": ""})["href"].split('/')[-1]
+            name = cells[1].find('a', {"class": ""}).text
+            city = cells[2].text
+            if name == "Raimberdiev Baytik":
+                print(row)
+            df.loc[id] = [name, city]
         
-        df = pd.DataFrame({"id": id, "name": name, "city": city})
+        df.to_csv('test.csv')
         df["name"] = df["name"].apply(lambda s: s[:(s.find("_") if s.find("_")>0 else len(s))])
+        
         df = df.query('city in @valid_city')
-        df = df.set_index('id')
         return df 
 
     return None
@@ -67,26 +75,26 @@ def run(*args):
     if df is None:
         return
     
-    for id, row in df.iterrows():
-        url = get_player_url(id)
-        raiting, rank, tournaments, games = get_player_info(driver, url)
-        df.loc[id, "raiting"] = raiting
-        df.loc[id, "rank"] = rank
-        df.loc[id, "tournaments"] = tournaments
-        df.loc[id, "games"] = games
-
-        if raiting is not None:
-            update_dict = {"name": row["name"], 
-                           "city": "Тюмень", 
-                           "rank": rank, 
-                           "tournaments": tournaments, 
-                           "games": games}
-            
-            player, created = Player.objects.update_or_create(id=id,  defaults=update_dict)
-            
-    
     df = df.dropna()
-    
+    #df.to_csv('test.csv')
+    # for id, row in df.iterrows():
+    #     url = get_player_url(id)
+    #     raiting, rank, tournaments, games = get_player_info(driver, url)
+    #     df.loc[id, "raiting"] = raiting
+    #     df.loc[id, "rank"] = rank
+    #     df.loc[id, "tournaments"] = tournaments
+    #     df.loc[id, "games"] = games
+
+    #     if raiting is not None:
+    #         update_dict = {"name": row["name"], 
+    #                        "city": row["city"], 
+    #                        "rank": rank, 
+    #                        "tournaments": tournaments, 
+    #                        "games": games,
+    #                        "raiting": raiting}
+            
+    #         player, created = Player.objects.update_or_create(id=id,  defaults=update_dict)
+            
     driver.quit()  
     print(df)
 
