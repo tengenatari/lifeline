@@ -11,6 +11,8 @@ class Post(models.Model):
     image = models.ImageField(upload_to='images/')
     created = models.DateTimeField(auto_now_add=True, null=False, blank=False)
 
+    deleted = models.BooleanField(default=False)
+
     def __str__(self):
         return self.title
 
