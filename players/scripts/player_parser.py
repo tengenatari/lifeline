@@ -20,9 +20,6 @@ def parse_players_id(driver, valid_city):
         
         WebDriverWait(driver, 25).until(EC.presence_of_element_located((By.XPATH, table_xpath)))
         soup = BeautifulSoup(driver.page_source, 'html.parser')
-        with open('test.html', "w", encoding='utf-8') as f:
-            f.write(driver.page_source)
-            f.close()
         table = soup.find("tbody")
         rows = table.find_all('tr')
         

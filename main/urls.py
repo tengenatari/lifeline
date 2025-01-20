@@ -3,7 +3,6 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('tournaments', views.tournaments),
     path('about', views.about),
     path("favicon.ico", views.favicon),
 ]
