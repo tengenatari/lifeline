@@ -12,7 +12,8 @@ class Tournament(models.Model):
     is_visible = models.BooleanField(default=True, verbose_name='Отображать')
 
     def __str__(self):
-        return self.name
+        return self.title
+
     class Meta:
         verbose_name_plural = 'турниры'
         verbose_name = 'турнир'
