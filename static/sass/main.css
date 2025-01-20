@@ -1799,4 +1799,9 @@ button:hover, .button:hover {
     min-height: 100px;
     text-decoration: none; }
 
+.club {
+  display: flex;
+  padding: 20px;
+  margin: 20px; }
+
 /*# sourceMappingURL=main.css.map */

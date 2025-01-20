@@ -1,1 +1,48 @@
 {% extends "index.html" %}
+{% load static %}
+
+{% block title %}
+    <h2>Клубы</h2>
+{% endblock title %}
+
+
+{% block content %}
+    <div class="row row-cols-auto justify-content-center">
+    {% for row in data %}
+
+        <div class="club col card">
+        <img src="{% static '/images/pic01.jpg' %}">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+        </div>
+    </div>
+
+    {% endfor %}
+    <div class="club col card">
+        <img src="{% static '/images/pic01.jpg' %}">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+        </div>
+    </div>
+    <div class="club col card">
+        <img src="{% static '/images/pic01.jpg' %}">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+        </div>
+    </div>
+    <div class="club col card">
+        <img src="{% static '/images/pic01.jpg' %}">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+        </div>
+    </div>
+    </div>
+{% endblock content %}
