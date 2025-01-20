@@ -13,10 +13,6 @@ def tournaments(request):
     return render(request, 'tournaments.html')
 
 
-def clubs(request):
-    return render(request, 'clubs.html')
-
-
 def about(request):
     return render(request, 'about.html')
 

@@ -8,15 +8,14 @@ from django.utils import timezone
 class Player(models.Model):
     id = models.CharField(max_length=50, primary_key=True)
     name = models.CharField(max_length=100, blank=True, null=True)
-    city = models.CharField(max_length=100, blank=True, null=True)
-    rank = models.CharField(max_length=100, blank=True, null=True)
+    city = models.CharField(max_length=100, blank=True, null=True, verbose_name='')
+    rank = models.CharField(max_length=100, blank=True, null=True, verbose_name='')
     raiting = models.CharField(max_length=100, blank=True, null=True)
     tournaments = models.CharField(max_length=100, blank=True, null=True)
     games = models.CharField(max_length=100, blank=True, null=True)
-    
-    deleted = models.BooleanField(default=False, null=False)
 
-    deleted = models.BooleanField(default=False)
+    is_visible = models.BooleanField(default=True)
+
 
     def __str__(self):
         return self.name
