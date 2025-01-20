@@ -1,5 +1,3 @@
-from idlelib.macosx import hideTkConsole
-
 from django.db import models
 
 # Create your models here.
