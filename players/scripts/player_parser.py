@@ -45,10 +45,11 @@ def get_player_info(driver, url):
         info = {
             "name": driver.find_element(By.XPATH, "/html/body/div/div/div[2]/div/div/div[1]").text,
             "city": driver.find_element(By.XPATH, "/html/body/div/div/div[2]/div/div/div[1]/span").text,
-            "raiting": driver.find_element(By.XPATH, "/html/body/div/div/div[2]/div/div/div[2]/div[1]/div[2]").text,
+            "rating": driver.find_element(By.XPATH, "/html/body/div/div/div[2]/div/div/div[2]/div[1]/div[2]").text,
             "rank": driver.find_element(By.XPATH, "/html/body/div/div/div[2]/div/div/div[2]/div[2]/div[2]").text,
             "tournaments": driver.find_element(By.XPATH, "/html/body/div/div/div[2]/div/div/div[2]/div[3]/div[2]").text,
             "games": driver.find_element(By.XPATH, "/html/body/div/div/div[2]/div/div/div[2]/div[4]/div[2]").text,
+            "last_game_date": driver.find_element(By.XPATH, "/html/body/div/div/div[3]/div/div/div[1]/div[4]/table/tbody/tr[1]/td[1]/span/time[1]").get_attribute("datetime"),
         }
         if info["name"].find('_') > 0:
             info["name"] = info["name"][:info["name"].find('_')]

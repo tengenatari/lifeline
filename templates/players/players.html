@@ -18,15 +18,15 @@
                 <td>Турниры</td>
                 <td>Игры</td>
             </tr>
-            {% for row in data %}
+            {% for player in players %}
             <tr>
-                <td>{{row.index}}</td>
-                <td><a href={{row.player_url}}>{{row.name}}</a></td>
-                <td>{{row.town}}</td>
-                <td>{{row.rang}}</td>
-                <td>{{row.raiting}}</td>
-                <td>{{row.tournaments_plays}}</td>
-                <td>{{row.games}}</td>
+                <td>{{ forloop.counter }}</td>
+                <td><a href="https://gofederation.ru/players/{{ player.id }}">{{ player.name }}</a></td>
+                <td>{{player.city}}</td>
+                <td>{{player.rank}}</td>
+                <td>{{player.rating}}</td>
+                <td>{{player.tournaments}}</td>
+                <td>{{player.games}}</td>
             </tr>
             {% endfor %}
         </table>
