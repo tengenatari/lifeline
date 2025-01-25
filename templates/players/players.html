@@ -8,27 +8,31 @@
 
 {% block content %}
     <section class="feature">
-        <table class="Table">
-            <tr class="table-header">
-                <td>№</td>
-                <td>Фамилия и имя</td>
-                <td>Город</td>
-                <td>Ранг</td>
-                <td>Рейтинг</td>
-                <td>Турниры</td>
-                <td>Игры</td>
-            </tr>
-            {% for player in players %}
-            <tr>
-                <td>{{ forloop.counter }}</td>
-                <td><a href="https://gofederation.ru/players/{{ player.id }}">{{ player.name }}</a></td>
-                <td>{{player.city}}</td>
-                <td>{{player.rank}}</td>
-                <td>{{player.rating}}</td>
-                <td>{{player.tournaments}}</td>
-                <td>{{player.games}}</td>
-            </tr>
-            {% endfor %}
+        <table class="table table-hover table-curved">
+            <thead>
+                <tr>
+                    <th scope="col">№</th>
+                    <th scope="col">Фамилия и имя</th>
+                    <th scope="col" class="d-none d-sm-table-cell">Город</th>
+                    <th scope="col">Ранг</th>
+                    <th scope="col">Рейтинг</th>
+                    <th scope="col" class="d-none d-md-table-cell">Турниры</th>
+                    <th scope="col" class="d-none d-md-table-cell">Игры</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for player in players %}
+                <tr class="rounded-pill">
+                    <td scope="row">{{ forloop.counter }}</td>
+                    <td><a href="https://gofederation.ru/players/{{ player.id }}">{{ player.name }}</a></td>
+                    <td class="d-none d-sm-table-cell">{{player.city}}</td>
+                    <td>{{player.rank}}</td>
+                    <td>{{player.rating}}</td>
+                    <td class="d-none d-md-table-cell">{{player.tournaments}}</td>
+                    <td class="d-none d-md-table-cell">{{player.games}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
         </table>
     </section>
 {% endblock content %}
