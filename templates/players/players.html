@@ -8,9 +8,9 @@
 
 {% block content %}
     <section class="feature">
-        <table class="table table-hover table-curved">
+        <table class="table table-hover table-curved ">
             <thead>
-                <tr>
+                <tr >
                     <th scope="col">№</th>
                     <th scope="col">Фамилия и имя</th>
                     <th scope="col" class="d-none d-sm-table-cell">Город</th>
@@ -22,7 +22,7 @@
             </thead>
             <tbody>
                 {% for player in players %}
-                <tr class="rounded-pill">
+                <tr>
                     <td scope="row">{{ forloop.counter }}</td>
                     <td><a href="https://gofederation.ru/players/{{ player.id }}">{{ player.name }}</a></td>
                     <td class="d-none d-sm-table-cell">{{player.city}}</td>

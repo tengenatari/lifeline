@@ -2308,9 +2308,12 @@ button:hover, .button:hover
   text-align: justify 
 
 .table-curved
+  border-collapse: separate
   tbody
     tr
       border: 2px solid #ffffff
+      border-radius: 1rem
+
     th
       //border: 0
     td
@@ -2321,15 +2324,16 @@ button:hover, .button:hover
     tr:hover
       border-color: #42aaff
       background-color: #ffffff
+
       td:first-child
         // border-left: 2px solid #42aaff
-        border-radius: 8px 0 0 8px
+        border-radius: 10%
       td
         // border-top: 2px solid #42aaff
         // border-bottom: 2px solid #42aaff
       td:last-child
         // border-right: 2px solid #42aaff
-        border-radius: 0 8px 8px 0
+      transition: border-color 0.3s, background-color 0.3s
 
 .club
   display: flex
