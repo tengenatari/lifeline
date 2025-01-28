@@ -8,19 +8,23 @@
 
 {% block content %}
     <section class="feature">
-        <table class="Table">
-            <tr class="table-header">
-                <td>Название</td>
-                <td>Город</td>
-                <td>Сроки проведения</td>
-            </tr>
-            {% for tournament in tournaments %}
-            <tr>
-                <td><a href="https://gofederation.ru/tournaments/{{ tournament.id }}">{{ tournament.title }}</a></td>
-                <td>{{ tournament.city }}</td>
-                <td>{{ tournament.period }}</td>
-            </tr>
-            {% endfor %}
+        <table class="table table-hover table-curved">
+            <thead>
+                <tr>
+                    <th scope="col">Название</th>
+                    <th scope="col">Город</th>
+                    <th scope="col">Сроки проведения</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tournament in tournaments %}
+                <tr>
+                    <td><a href="https://gofederation.ru/tournaments/{{ tournament.id }}">{{ tournament.title }}</a></td>
+                    <td>{{ tournament.city }}</td>
+                    <td>{{ tournament.period }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
         </table>
     </section>
 {% endblock content %}

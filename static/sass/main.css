@@ -4,7 +4,7 @@
  *	Telephasic by HTML5 UP
  *	html5up.net | @ajlkn
  *	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license) */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption, tfoot, thead, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -31,10 +31,6 @@ blockquote:before, blockquote:after {
 q:before, q:after {
   content: '';
   content: none; }
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0; }
 
 body {
   -webkit-text-size-adjust: none; }
@@ -157,7 +153,7 @@ blockquote {
   padding: 1em 0 1em 2em;
   font-style: italic; }
 
-p, ul, ol, dl, table {
+p, ul, ol, dl {
   margin-bottom: 1.5em; }
 
 br.clear {
@@ -1130,25 +1126,6 @@ form ::-webkit-input-placeholder, form :-moz-placeholder, form ::-moz-placeholde
 form ::-moz-focus-inner {
   border: 0; }
 
-/* Table */
-table {
-  width: 100%; }
-  table.default {
-    width: 100%; }
-    table.default tbody tr {
-      border-top: solid 1px #D2D7DC; }
-      table.default tbody tr:nth-child(2n+1) {
-        background: #f9fbfe; }
-    table.default td {
-      padding: 0.5em 1em 0.5em 1em; }
-    table.default th {
-      text-align: left;
-      font-weight: 400;
-      padding: 0.5em 1em 0.5em 1em; }
-    table.default tfoot {
-      border-top: solid 1px #D2D7DC; }
-
-/* Button */
 input[type="button"], input[type="submit"], input[type="reset"] {
   -moz-transition: color 0.25s ease-in-out, border-color 0.25s ease-in-out, background-color 0.25s ease-in-out;
   -webkit-transition: color 0.25s ease-in-out, border-color 0.25s ease-in-out, background-color 0.25s ease-in-out;
@@ -1769,35 +1746,20 @@ button:hover, .button:hover {
   font-size: xx-large;
   text-align: justify; }
 
-.Table {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: nowrap;
-  width: 100%;
-  border-radius: 2px;
-  border-collapse: collapse; }
-  .Table tr {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
-    border: 1px solid #42aaff;
-    border-radius: 10px;
-    width: 100%;
-    margin-top: 8px; }
-  .Table .table-header {
-    border: 0px; }
-  .Table td {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10%;
-    padding: 5px 5px;
-    flex-basis: 100%;
-    min-width: 150px;
-    min-height: 100px;
-    text-decoration: none; }
+.table-curved tbody tr {
+  border: 0; }
+
+.table-curved tbody th {
+  border: 0; }
+
+.table-curved tbody td {
+  border: 0; }
+
+.table-curved tbody tr:hover td:first-child {
+  border-radius: 8px 0 0 8px; }
+
+.table-curved tbody tr:hover td:last-child {
+  border-radius: 0 8px 8px 0; }
 
 .club {
   display: flex;

@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from news.models import Post
-# Create your views here.
+from .models import Post
 
 
 def index_news(request):
