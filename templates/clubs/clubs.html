@@ -1,5 +1,10 @@
 {% extends "index.html" %}
 {% load static %}
+{% load sass_tags %}
+
+{% block head %}
+    <link href="{% sass_src 'sass/wide-content.sass' %}" rel="stylesheet" type="text/css"/>
+{% endblock head %}
 
 {% block title %}
     <h2>Клубы</h2>

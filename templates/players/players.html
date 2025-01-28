@@ -24,7 +24,13 @@
                 {% for player in players %}
                 <tr class="rounded-pill">
                     <td scope="row">{{ forloop.counter }}</td>
-                    <td><a href="https://gofederation.ru/players/{{ player.id }}">{{ player.name }}</a></td>
+
+                    {% if player.url %}
+                        <td><a href="{{ player.url }}" target="_blank">{{ player.name }}</a></td>
+                    {% else %}
+                        <td><a>{{ player.name }}</a></td>
+                    {% endif %}
+                    
                     <td class="d-none d-sm-table-cell">{{player.city}}</td>
                     <td>{{player.rank}}</td>
                     <td>{{player.rating}}</td>

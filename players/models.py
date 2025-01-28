@@ -14,6 +14,7 @@ class Player(models.Model):
     tournaments = models.IntegerField(default=0, blank=True, verbose_name='Турниры')
     games = models.IntegerField(default=0, blank=True, verbose_name='Игры')
     last_game_date = models.DateField(default='2000-01-01', blank=True, verbose_name='Дата последней игры')
+    url = models.CharField(max_length=200, blank=True, null=True, verbose_name='Ссылка')
     is_visible = models.BooleanField(default=True, verbose_name='Отображать')
 
 

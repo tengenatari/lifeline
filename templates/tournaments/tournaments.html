@@ -19,7 +19,13 @@
             <tbody>
                 {% for tournament in tournaments %}
                 <tr>
-                    <td><a href="https://gofederation.ru/tournaments/{{ tournament.id }}">{{ tournament.title }}</a></td>
+
+                    {% if tournament.url %}
+                        <td><a href="{{ tournament.url }}" target="_blank">{{ tournament.title }}</a></td>
+                    {% else %}
+                        <td><a>{{ tournament.title }}</a></td>
+                    {% endif %}
+                    
                     <td>{{ tournament.city }}</td>
                     <td>{{ tournament.period }}</td>
                 </tr>

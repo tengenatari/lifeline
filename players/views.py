@@ -6,6 +6,7 @@ def index_players(request):
     return render(request, 'players/players.html',
                   context={'players': Player.objects.filter(
                       last_game_date__range=[datetime.datetime.now() - datetime.timedelta(days=3*365),
-                                             datetime.date.today()]).order_by('-rating')
+                                             datetime.date.today()],
+                                             is_visible=True).order_by('-rating')
                            }
                   )
