@@ -1762,8 +1762,30 @@ button:hover, .button:hover {
   border-radius: 0 8px 8px 0; }
 
 .club {
-  display: flex;
-  padding: 20px;
+  max-width: 40em;
+  padding: 10px;
   margin: 20px; }
+  .club .card-body {
+    padding: 10px; }
+
+@media screen and (max-width: 1024px) {
+  .club {
+    max-width: 39em; } }
+
+@media screen and (max-width: 768px) {
+  .club {
+    max-width: 25em; } }
+
+@media screen and (max-width: 500px) {
+  .club {
+    max-width: 20em; } }
+
+.icon {
+  max-width: 40px;
+  margin-left: 6px;
+  margin-right: 6px; }
+
+a {
+  border: 0; }
 
 /*# sourceMappingURL=main.css.map */

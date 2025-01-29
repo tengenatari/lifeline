@@ -12,42 +12,51 @@
 
 
 {% block content %}
+    <p></p>
     <div class="row row-cols-auto justify-content-center">
-    {% for row in data %}
+    {% for club in clubs %}
+        
+    <div class="card mb-3 club card-deck">
 
-        <div class="club col card">
-        <img src="{% static '/images/pic01.jpg' %}">
+        <div class="row no-gutters card-row">
+            <div class="col-md-4">
+                <img src="{% static '/images/club-image.svg' %}" alt="..." class="mx-auto d-block">
+                <div class="card-body text-center">
+                    {% if club.vk %}
+                        <a href="{{ club.vk }}" target="_blank">
+                            <img src="{% static '/images/icon-vk.png' %}" alt="..." class="icon">
+                        </a>
+                    {% endif %}
+                    {% if club.telegram %}
+                        <a href="{{ club.telegram }}" target="_blank">
+                            <img src="{% static '/images/icon-telegram.png' %}" alt="..." class="icon">      
+                        </a>
+                    {% endif %}
+                    {% if club.ogs %}
+                        <a href="{{ club.ogs }}" target="_blank">
+                            <img src="{% static '/images/icon-ogs.png' %}" alt="..." class="icon">
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{club.name}}</h5>
+                    <p class="card-text">{{club.description}}</p>
+                    <p class="card-text">{{club.contacts}}<small class="text-muted"></small></p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    {% comment %} </div>
+        <img src="{% static '/images/club-image.svg' %}" class="img-thumbnail float-left">
         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title">{{club.name}}</h5>
+            <p class="card-text">{{club.description}}</p>
 
         </div>
-    </div>
+    </div> {% endcomment %}
 
     {% endfor %}
-    <div class="club col card">
-        <img src="{% static '/images/pic01.jpg' %}">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-        </div>
-    </div>
-    <div class="club col card">
-        <img src="{% static '/images/pic01.jpg' %}">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-        </div>
-    </div>
-    <div class="club col card">
-        <img src="{% static '/images/pic01.jpg' %}">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-        </div>
-    </div>
-    </div>
 {% endblock content %}
