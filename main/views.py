@@ -3,6 +3,7 @@ from django.conf import settings
 from django.http import FileResponse, HttpRequest, HttpResponse
 from django.views.decorators.cache import cache_control
 from django.views.decorators.http import require_GET
+from django.apps import apps
 
 
 def index(request):
@@ -10,7 +11,8 @@ def index(request):
 
 
 def about(request):
-    return render(request, 'about.html')
+    context = apps.get_model('main', 'Settings').get_settings()
+    return render(request, 'about.html', context=context)
 
 
 @require_GET

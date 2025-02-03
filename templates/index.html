@@ -9,13 +9,14 @@
     	<title>Линия Жизни</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link href="{% sass_src 'sass/main.sass' %}" rel="stylesheet" type="text/css"/>
+		{% block head %}
+		{% endblock head %}
 	</head>
 	<body class="homepage is-preload">
 		<div id="page-wrapper">
 			<!-- Header -->
 				<div id="header-wrapper">
 					<div id="header" class="container">
-
 						<!-- Logo -->
 							<h1 id="logo"><a href="/news">Игра го в Тюмени</a></h1>
 						<!-- Nav -->
@@ -31,7 +32,7 @@
 					<!-- Hero -->
 						<section id="hero" class="container">
 							<header>
-								<img src="{% static 'images/main-logo.png' %}" width="250">
+								
 								{% block title %}
 								{% endblock title %}
 							</header>
@@ -50,7 +51,8 @@
 				<div class="container">
 					<div id="copyright" class="container">
 						<ul class="menu">
-							<li>&copy; ТООООО «РФГ»</li>
+							{% block footer %}
+							{% endblock footer %}
 						</ul>
 					</div>
 				</div>

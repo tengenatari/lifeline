@@ -46,14 +46,15 @@ def run(*args):
     
     already_exists = set([str((t.title, t.period)) for t in Tournament.objects.all()])
     for id, row in df.iterrows():
-        if str((row["title"], row["period"])) in already_exists:
-            continue
+        # if str((row["title"], row["period"])) in already_exists:
+        #     continue
 
         tournament_info = {
             "title": row["title"],
             "city": row["city"],
             "period": row["period"],
             "date": row["date"],
+            "url":f"https://gofederation.ru/tournaments/{id}/walllist",
         }
         tournament, created = Tournament.objects.update_or_create(id=id, defaults=tournament_info)
     

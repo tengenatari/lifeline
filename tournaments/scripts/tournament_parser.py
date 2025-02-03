@@ -45,6 +45,7 @@ def run(*args):
             "city": row["city"],
             "period": row["period"],
             "date": row["date"],
+            "url":f"https://gofederation.ru/tournaments/{id}/walllist",
         }
         tournament, created = Tournament.objects.update_or_create(id=id, defaults=tournament_info)
     

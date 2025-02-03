@@ -1,0 +1,9 @@
+{
+	"version": 3,
+	"file": "wide-content.css",
+	"sources": [
+		"wide-content.sass"
+	],
+	"names": [],
+	"mappings": "AAAA,AAAA,UAAU,CAAC;EACT,MAAM,EAAE,MAAM;EACd,SAAS,EAAE,IAAI;EACf,KAAK,EAAE,MAAM,GAAG"
+}

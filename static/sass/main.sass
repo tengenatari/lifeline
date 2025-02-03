@@ -2308,34 +2308,59 @@ button:hover, .button:hover
   text-align: justify 
 
 .table-curved
-  border-collapse: separate
   tbody
     tr
-      border: 2px solid #ffffff
-      border-radius: 1rem
-
+      border: 0
     th
-      //border: 0
+      border: 0
     td
-      //border: 0
-      // background-color: #42aaff
-      // border-radius: 8px 8px 8px 8px
+      border: 0
 
     tr:hover
-      border-color: #42aaff
-      background-color: #ffffff
-
       td:first-child
-        // border-left: 2px solid #42aaff
-        border-radius: 10%
-      td
-        // border-top: 2px solid #42aaff
-        // border-bottom: 2px solid #42aaff
+        border-radius: 8px 0 0 8px
       td:last-child
-        // border-right: 2px solid #42aaff
-      transition: border-color 0.3s, background-color 0.3s
+        border-radius: 0 8px 8px 0
 
 .club
-  display: flex
-  padding: 20px
+  max-width: 40em
+  padding: 10px
   margin: 20px
+  .card-body
+    padding: 10px
+  
+@media screen and (max-width: 1024px)
+  .club
+    max-width: 39em
+
+@media screen and (max-width: 768px)
+  .club
+    max-width: 25em
+
+@media screen and (max-width: 500px)
+  .club
+    max-width: 20em
+
+.icon
+  max-width: 40px
+  margin-left: 6px
+  margin-right: 6px
+
+a
+  border: 0
+
+.about-header
+  font-weight: 10px
+
+.about-text
+  font-size: xx-large
+  text-align: justify 
+  line-height: 1.2em
+
+.main-logo
+  width: 200px
+  // position: absolute
+  // top: 50%
+  // left: 10%
+  // /* коррекция положения элемента */
+  // transform: translate(-50%, -50%)
