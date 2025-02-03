@@ -5,6 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
 from bs4 import BeautifulSoup
 from ..models import Player
+from django.apps import apps
 
 
 def parse_players_id(driver, valid_city):
@@ -55,6 +56,9 @@ def get_player_info(driver, url):
             info["name"] = info["name"][:info["name"].find(' (')]
         info["city"] = info["city"].replace('(', '').replace(')', '')
         info["rank"] = info["rank"].replace('d', ' дан').replace('k', ' кю')
+        info["games"] = info["games"].replace(' ', '')
+        info["rating"] = info["rating"].replace(' ', '')
+        info["tournaments"] = info["tournaments"].replace(' ', '')
     except:
         info = None
     return info
@@ -71,8 +75,13 @@ def update_player(driver, id, valid_city, new_player):
             return created
         
 
+def get_valid_city():
+    City = apps.get_model('main', 'City')
+    return City.objects.filter(deleted=False).values_list("name", flat=True)
+    
+
 def run(*args):
-    valid_city = ["Тюмень"]
+    valid_city = get_valid_city()
     driver = webdriver.Chrome()
 
     new_players_set = parse_players_id(driver, valid_city)

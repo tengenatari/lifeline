@@ -1,12 +1,10 @@
 from django.shortcuts import render
-from . import models
 from .models import Club
-
+from django.apps import apps
 
 def clubs(request):
-
-    return render(request, 'clubs/clubs.html',
-                    context={'clubs': Club.objects.filter(is_visible=True)}
-                    )
+    context = apps.get_model('main', 'Settings').get_settings()
+    context["clubs"] = Club.objects.filter(is_visible=True)
+    return render(request, 'clubs/clubs.html', context=context)
 
 

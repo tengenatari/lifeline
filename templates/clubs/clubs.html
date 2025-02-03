@@ -49,14 +49,10 @@
         </div>
         
     </div>
-    {% comment %} </div>
-        <img src="{% static '/images/club-image.svg' %}" class="img-thumbnail float-left">
-        <div class="card-body">
-            <h5 class="card-title">{{club.name}}</h5>
-            <p class="card-text">{{club.description}}</p>
-
-        </div>
-    </div> {% endcomment %}
 
     {% endfor %}
 {% endblock content %}
+
+{% block footer %}
+    <li>{{ ПодвалСтраницы }}</li>
+{% endblock footer %}
