@@ -999,13 +999,6 @@ header {
 a.image:hover {
   opacity: 0.85; }
 
-/* List */
-ul {
-  list-style: disc;
-  padding-left: 1em; }
-  ul li {
-    padding-left: 0.5em; }
-
 ol {
   list-style: decimal;
   padding-left: 1.25em; }
@@ -1512,9 +1505,6 @@ button:hover, .button:hover {
     header > p {
       font-size: 1em; }
   /* Divided */
-  ul.divided li {
-    padding-top: 0.75em;
-    margin-top: 0.75em; }
   /* Wrappers */
   .wrapper {
     padding: 1em 20px 1em 20px; }
@@ -1705,13 +1695,6 @@ button:hover, .button:hover {
     width: 100%;
     margin: 0 0 1.5em 0; }
   /* Actions */
-  ul.actions li {
-    display: block;
-    margin: 1em 0 0 0; }
-    ul.actions li:first-child {
-      margin-top: 0; }
-  ul.actions.major {
-    text-align: left !important; }
   /* Form */
   form textarea {
     min-height: 10em; }
@@ -1761,6 +1744,11 @@ button:hover, .button:hover {
 .table-curved tbody tr:hover td:last-child {
   border-radius: 0 8px 8px 0; }
 
+.table-players tbody tr:nth-child(1) {
+  border: 2px;
+  border-color: #FFD700;
+  box-shadow: 0 0 0 3px #FFD700; }
+
 .club {
   max-width: 40em;
   padding: 10px;
@@ -1797,6 +1785,27 @@ a {
   line-height: 1.2em; }
 
 .main-logo {
-  width: 200px; }
+  width: 70px;
+  position: absolute;
+  top: 5%;
+  left: 10%; }
+
+ul.list li {
+  display: flex;
+  font-size: xx-large;
+  text-align: justify;
+  line-height: 1.2em;
+  font-weight: 10px;
+  align-items: center;
+  justify-content: left; }
+  ul.list li div.circle {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    outline: 0.1em solid #70abff;
+    align-content: center;
+    text-align: center;
+    margin: 10px;
+    margin-right: 0.5em; }
 
 /*# sourceMappingURL=main.css.map */

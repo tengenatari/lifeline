@@ -1369,15 +1369,6 @@ header
 a.image:hover
   opacity: 0.85
 
-/* List
-
-ul
-  list-style: disc
-  padding-left: 1em
-
-  li
-    padding-left: 0.5em
-
 ol
   list-style: decimal
   padding-left: 1.25em
@@ -2015,9 +2006,9 @@ button:hover, .button:hover
 
   /* Divided
 
-  ul.divided li
-    padding-top: 0.75em
-    margin-top: 0.75em
+  // ul.divided li
+  //   padding-top: 0.75em
+  //   margin-top: 0.75em
 
   /* Wrappers
 
@@ -2252,16 +2243,16 @@ button:hover, .button:hover
 
   /* Actions
 
-  ul.actions
-    li
-      display: block
-      margin: 1em 0 0 0
+  // ul.actions
+  //   li
+  //     display: block
+  //     margin: 1em 0 0 0
 
-      &:first-child
-        margin-top: 0
+  //     &:first-child
+  //       margin-top: 0
 
-    &.major
-      text-align: left !important
+  //   &.major
+  //     text-align: left !important
 
   /* Form
 
@@ -2322,6 +2313,14 @@ button:hover, .button:hover
       td:last-child
         border-radius: 0 8px 8px 0
 
+.table-players
+  tbody
+    tr:nth-child(1)
+      // background-color: #FFD700
+      border: 2px
+      border-color: #FFD700
+      box-shadow: 0 0 0 3px #FFD700
+
 .club
   max-width: 40em
   padding: 10px
@@ -2358,9 +2357,37 @@ a
   line-height: 1.2em
 
 .main-logo
-  width: 200px
-  // position: absolute
-  // top: 50%
-  // left: 10%
+  width: 70px
+  position: absolute
+  top: 5%
+  left: 10%
   // /* коррекция положения элемента */
   // transform: translate(-50%, -50%)
+
+ul.list
+  li  
+    display: flex
+    font-size: xx-large
+    text-align: justify 
+    line-height: 1.2em
+    font-weight: 10px
+    align-items: center
+    justify-content: left
+    div.circle
+      width: 75px
+      height: 75px
+      border-radius: 50%
+      outline: 0.1em solid #70abff
+      align-content: center
+      text-align: center
+      margin: 10px
+      margin-right: 0.5em
+      
+      
+
+// ul
+//   list-style: disc
+//   padding-left: 1em
+
+//   li
+//     padding-left: 0.5em
