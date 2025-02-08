@@ -23,7 +23,17 @@
             <tbody>
                 {% for player in players %}
                 <tr class="rounded-pill">
-                    <td scope="row">{{ forloop.counter }}</td>
+                    <td scope="row">
+                        {% if forloop.counter > 3 %}
+                            <div class="place">{{ forloop.counter }}</div>
+                        {% elif forloop.counter == 1 %}
+                            <img src="{% static '/images/icon-1st-place.png' %}" alt="..." class="icon">
+                        {% elif forloop.counter == 2 %}
+                            <img src="{% static '/images/icon-2nd-place.png' %}" alt="..." class="icon">
+                        {% elif forloop.counter == 3 %}
+                            <img src="{% static '/images/icon-3rd-place.png' %}" alt="..." class="icon"> 
+                        {% endif %}
+                    </td>   
 
                     {% if player.url %}
                         <td><a href="{{ player.url }}" target="_blank">{{ player.name }}</a></td>
