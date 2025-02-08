@@ -17,24 +17,25 @@
 		<div id="page-wrapper">
 			<!-- Header -->
 				<div id="header-wrapper">
-					<nav class="navbar navbar-expand-lg navbar-light bg-light">
-						<a class="navbar-brand" href="#">
-							<img class="main-logo" src="{% static 'images/main-logo.png' %}">
-							Игра го в Тюмени
-						</a>
-						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"></span>
-						</button>
-						
-						<div class="collapse navbar-collapse" id="navbarSupportedContent">
-							<ul class="navbar-nav mr-auto">
-							<li class="nav-item"><a class="nav-link" href="/players">Спортсмены</a></li>
-							<li class="nav-item"><a class="nav-link" href="/tournaments">Турниры</a></li>
-							<li class="nav-item"><a class="nav-link" href="/clubs">Клубы</a></li>
-							<li class="nav-item"><a class="nav-link" href="/about">Об отделении</a></li>
-							</form>
-						</div>
-					</nav>
+					<div  class="container">
+						<nav class="navbar navbar-expand-xl navvbar-light">
+							<a class="navbar-brand nav-white">
+								<img class="main-logo" src="{% static 'images/main-logo.png' %}">
+								
+							</a>
+							<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+								<span class="navbar-toggler-icon"></span>
+							</button>
+							<div class="collapse navbar-collapse" id="navbarSupportedContent">
+								<ul class="navbar-nav mr-auto w-100 justify-content-center">
+								<li class="nav-item"><a class="nav-link nav-white" href="/news">Новости</a></li>
+								<li class="nav-item"><a class="nav-link nav-white" href="/players">Спортсмены</a></li>
+								<li class="nav-item"><a class="nav-link nav-white" href="/tournaments">Турниры</a></li>
+								<li class="nav-item"><a class="nav-link nav-white" href="/clubs">Клубы</a></li>
+								<li class="nav-item"><a class="nav-link nav-white" href="/about">Об&nbspотделении</a></li>
+							</div>
+						</nav>
+					
 					<!-- Hero -->
 						<section id="hero" class="container">
 							<header>
@@ -44,6 +45,7 @@
 							{% block subtitle %}
 							{% endblock subtitle %}
 						</section>
+					</div>
 				</div>
 			<!-- Features 1 -->
 				<div class="wrapper">

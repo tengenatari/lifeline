@@ -30,9 +30,6 @@ a {
   color: inherit;
   text-decoration: none;
   border-bottom: dotted 1px #62676c; }
-  a:hover {
-    color: #f35858;
-    border-bottom-color: rgba(255, 255, 255, 0); }
 
 em, i {
   font-style: italic; }
@@ -84,7 +81,7 @@ section > :last-child, article > :last-child, section:last-child, article:last-c
 /* Header */
 #header-wrapper {
   position: relative;
-  padding: 4em 0 2em 0;
+  padding: 0 0 2em 0;
   background-image: linear-gradient(75deg, #70e2ff 15%, #7072ff 55%);
   background-color: #89caf0;
   background-repeat: no-repeat;
@@ -133,9 +130,7 @@ section > :last-child, article > :last-child, section:last-child, article:last-c
   .wrapper {
     padding: 1em 0 1em 0; }
   #header-wrapper {
-    padding: 2em 0 2em 0; }
-  .homepage #header-wrapper {
-    padding: 6em 0 2em 0; } }
+    padding: 0 0 2em 0; } }
 
 /* Narrow */
 @media screen and (max-width: 1080px) {
@@ -143,11 +138,7 @@ section > :last-child, article > :last-child, section:last-child, article:last-c
   .wrapper {
     padding: 1em 2em 1em 2em; }
   #header-wrapper {
-    padding: 5em 0 1em 0; }
-  .homepage #header-wrapper {
-    padding: 4em 0 2em 0; }
-  #promo-wrapper {
-    padding: 2em; }
+    padding: 0 0 1em 0; }
   /* Hero */
   #hero {
     padding: 3.5em 4em 0 4em; }
@@ -206,10 +197,8 @@ section > :last-child, article > :last-child, section:last-child, article:last-c
   .wrapper {
     padding: 1em 20px 1em 20px; }
   #header-wrapper {
-    padding: 3em 20px 20px 20px;
+    padding: 0 0 20px 0;
     text-align: center; }
-  .homepage #header-wrapper {
-    padding: 2em 20px 2em 20px; }
   /* Footer */
   #footer ul.divided {
     margin: 0; }
@@ -349,5 +338,23 @@ ul.list li {
     text-align: center;
     margin: 10px;
     margin-right: 0.5em; }
+
+.navbar div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+
+.nav-white {
+  color: #fff;
+  font-size: 1.5em;
+  line-height: 1em; }
+
+.navbar-collapse {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); }
+  .navbar-collapse .nav-item {
+    margin-left: 0.1em;
+    margin-right: 0.1em; }
 
 /*# sourceMappingURL=main.css.map */
