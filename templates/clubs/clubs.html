@@ -20,7 +20,7 @@
 
         <div class="row no-gutters card-row">
             <div class="col-md-4">
-                <img src="{% static '/images/club-image.svg' %}" alt="..." class="mx-auto d-block">
+                <img src="{{ club.logo.url }}" alt="..." class="mx-auto d-block club-logo">
                 <div class="card-body text-center">
                     {% if club.vk %}
                         <a href="{{ club.vk }}" target="_blank">

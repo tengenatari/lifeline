@@ -298,6 +298,11 @@ section > :last-child, article > :last-child, section:last-child, article:last-c
   #content
     margin-bottom: 2em
 
+  button, .button
+  display: block
+  width: 100%
+  text-align: center
+
 .news-header
   display: flex
   justify-content: space-between
@@ -388,8 +393,13 @@ a
   width: 6em
   padding: 2px
 
+.club-logo
+  width: 200px
+  height: 200px
+
 ul.list
   li  
+    position: relative
     display: flex
     font-size: xx-large
     text-align: justify 
@@ -397,7 +407,9 @@ ul.list
     font-weight: 10px
     align-items: center
     justify-content: left
+    margin: 60px 50px 60px 50px
     div.circle
+      position: absolute
       width: 75px
       height: 75px
       border-radius: 50%
@@ -406,7 +418,8 @@ ul.list
       text-align: center
       margin: 10px
       margin-right: 0.5em
-      
+      transform: translateX(-100px)
+
 #navbarSupportedContent
   min-height: 100px !important
 .navbar
@@ -426,3 +439,12 @@ ul.list
   .nav-item
     margin-left: 0.1em
     margin-right: 0.1em
+
+@media screen and (max-width: 768px)
+  .navbar-collapse
+    position: static
+    transform: translateX(0%)
+
+ul.menu
+  li
+    list-style-type: none

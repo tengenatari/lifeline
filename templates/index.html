@@ -5,12 +5,15 @@
 	<head>
 		{% load bootstrap5 %}
 		{% bootstrap_css %}
+		{% bootstrap_javascript %}
 		<meta charset="UTF-8">
     	<title>Линия Жизни</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link href="{% sass_src 'sass/main.sass' %}" rel="stylesheet" type="text/css"/>
+		
 		{% block head %}
 		{% endblock head %}
+
 	</head>
 	<body class="homepage is-preload">
 		
@@ -22,9 +25,10 @@
 							<div class="d-none d-lg-block">
 								<img class="main-logo" src="{% static 'images/main-logo.png' %}">
 							</div>
-							<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+							<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 								<span class="navbar-toggler-icon"></span>
 							</button>
+
 							<div class="collapse navbar-collapse" id="navbarSupportedContent">
 								<ul class="navbar-nav mr-auto w-100 justify-content-center">
 								<li class="nav-item"><a class="nav-link nav-white" href="/news">Новости</a></li>
