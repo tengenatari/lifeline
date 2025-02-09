@@ -86,7 +86,7 @@ section > :last-child, article > :last-child, section:last-child, article:last-c
 
 #header-wrapper
   position: relative
-  padding: 0 0 2em 0
+  padding: 2em 0 2em 0
   background-image: linear-gradient(75deg, #70e2ff 15%, #7072ff 55%)
   background-color: #89caf0
   background-repeat: no-repeat
@@ -99,10 +99,10 @@ section > :last-child, article > :last-child, section:last-child, article:last-c
   color: #fff
   text-align: center
   z-index: 1
-
+  padding: 2em 0 0 0
   h2
     color: #fff
-    font-size: 3em
+    font-size: 2.5em
 
   strong
     color: inherit
@@ -147,9 +147,6 @@ section > :last-child, article > :last-child, section:last-child, article:last-c
   .wrapper
     padding: 1em 0 1em 0
 
-  #header-wrapper
-    padding: 0 0 2em 0
-
 /* Narrow
 
 @media screen and (max-width: 1080px)
@@ -160,15 +157,15 @@ section > :last-child, article > :last-child, section:last-child, article:last-c
     padding: 1em 2em 1em 2em
 
   #header-wrapper
-    padding: 0 0 1em 0
+    padding: 2em 0 2em 0
 
   /* Hero
 
   #hero
-    padding: 3.5em 4em 0 4em
+    padding: 1em 4em 0 4em
 
     h2
-      font-size: 2.75em
+      font-size: 2.15em
 
     p br
       display: none
@@ -204,8 +201,9 @@ section > :last-child, article > :last-child, section:last-child, article:last-c
 
   /* Hero
 
-  #hero h2
-    font-size: 2.5em
+  #hero
+    h2
+      font-size: 2em
 
   /* Content
 
@@ -214,7 +212,7 @@ section > :last-child, article > :last-child, section:last-child, article:last-c
 
 /* Mobile
 
-@media screen and (max-width: 736px)
+@media screen and (max-width: 767px)
   /* Basic
 
   html
@@ -386,7 +384,8 @@ a
   line-height: 1.2em
 
 .main-logo
-  width: 4em
+  position: absolute
+  width: 6em
   padding: 2px
 
 ul.list
@@ -408,6 +407,8 @@ ul.list
       margin: 10px
       margin-right: 0.5em
       
+#navbarSupportedContent
+  min-height: 100px !important
 .navbar
   div
     display: flex
@@ -415,8 +416,8 @@ ul.list
     justify-content: space-between
 .nav-white
   color: #fff
-  font-size: 1.5em
-  line-height: 1em
+  font-size: 1.7em
+  font-weight: 500
 
 .navbar-collapse
   position: absolute
