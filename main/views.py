@@ -7,7 +7,7 @@ from django.apps import apps
 
 
 def index(request):
-    return redirect("/news")
+    return redirect("/players")
 
 
 def about(request):

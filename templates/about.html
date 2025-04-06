@@ -2,17 +2,17 @@
 {% load static %}
 
 {% block title %}
-    <h2>{{ ЗаголовокСтраницыОбОтделении|safe }}</h2>
+    <h2>{{ PageAboutTitle|safe }}</h2>
 {% endblock title %}
 
 {% block content %}
     <section class="feature">
         <div class="about-text">
-            {{ ТекстСтраницыОбОтделении|safe }}
+            {{ PageAboutText|safe }}
         </div>
     </section>
 {% endblock content %}
 
 {% block footer %}
-    <li>{{ ПодвалСтраницы }}</li>
+    <li>{{ Footer }}</li>
 {% endblock footer %}
