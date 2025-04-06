@@ -63,8 +63,9 @@ def get_player_info(driver, url):
         info["rating"] = info["rating"].replace(' ', '')
         info["tournaments"] = info["tournaments"].replace(' ', '')
         print("cool")
-    except:
-        print("exept")
+    except Exception as e:
+        print("Exception:")
+        print(e)
         info = None
     return info
 
