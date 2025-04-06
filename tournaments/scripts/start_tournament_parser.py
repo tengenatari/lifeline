@@ -16,13 +16,14 @@ def parse_tournaments(driver):
 
     driver.get(url)
 
-    select_element = Select(driver.find_element(By.XPATH, select_xpath))
+    wait = WebDriverWait(driver, 200)
+    select_element = wait.until(lambda driver: Select(driver.find_element(By.XPATH, select_xpath)))
     options = select_element.options
 
     df = pd.DataFrame({"id": [], "title": [], "city": [], "period": [], "date": []})
     for option in options:
         select_element.select_by_visible_text(option.text)
-        WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, table_xpath)))
+        wait.until(EC.presence_of_element_located((By.XPATH, table_xpath)))
 
         soup = BeautifulSoup(driver.page_source, 'html.parser')
 
@@ -47,7 +48,7 @@ def run(*args):
 
     df = parse_tournaments(driver)
     
-    already_exists = set([str((t.title, t.period)) for t in Tournament.objects.all()])
+    #already_exists = set([str((t.title, t.period)) for t in Tournament.objects.all()])
     for id, row in df.iterrows():
         # if str((row["title"], row["period"])) in already_exists:
         #     continue
