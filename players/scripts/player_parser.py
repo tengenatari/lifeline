@@ -40,7 +40,7 @@ def get_player_url(id):
 
 def get_player_info(driver, url):    
     try:
-        driver.get(url)
+        driver.get(url, ti)
         info = {
             "name": driver.find_element(By.XPATH, "/html/body/div/div/div[2]/div/div/div[1]").text,
             "city": driver.find_element(By.XPATH, "/html/body/div/div/div[2]/div/div/div[1]/span").text,
@@ -87,6 +87,7 @@ def get_valid_city():
 def run(*args):
     valid_city = get_valid_city()
     print(valid_city)
+
     options = Options()
     options.add_argument('--headless=new')
     driver = webdriver.Chrome(options=options)
@@ -95,8 +96,8 @@ def run(*args):
     id_set = new_players_set.union(old_players_set)
     
     for id in id_set:
-        print(id)
-        new_player = (id in new_players_set) and not (id in old_players_set)
-        update_player(driver, id, valid_city, new_player)
+       print(id)
+       new_player = (id in new_players_set) and not (id in old_players_set)
+       update_player(driver, id, valid_city, new_player)
     
     driver.quit()
