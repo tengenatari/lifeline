@@ -14,7 +14,9 @@ def parse_players_id(driver, valid_city):
     select_xpath = '/html/body/div/div/div[2]/div/div/div[1]/div[1]/select'
     table_xpath = '/html/body/div/div/div[2]/div/div/div[1]/div[2]/div/table'
     driver.get(url)
-    select_element = Select(driver.find_element(By.XPATH, select_xpath))
+    
+    wait = WebDriverWait(driver, 10)
+    select_element = wait.until(lambda driver: Select(driver.find_element(By.XPATH, select_xpath)))
     
     players_id = set()
     if "За всё время" in [o.text for o in select_element.options]:
