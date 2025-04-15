@@ -1,114 +1,90 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import Select
-from selenium.webdriver.chrome.options import Options
-from bs4 import BeautifulSoup
 from ..models import Player
 from django.apps import apps
+from tqdm import tqdm
+import requests
+from django.utils import timezone
 
+def fetch_and_save_players(url):
+    print(f"GET {url}")
+    response = requests.get(url)
+    response.raise_for_status()
+    data = response.json()
+    players = data.get("Players", [])
 
-def parse_players_id(driver, valid_city):
-    url = "https://gofederation.ru/players"
-    select_xpath = '/html/body/div/div/div[2]/div/div/div[1]/div[1]/select'
-    table_xpath = '/html/body/div/div/div[2]/div/div/div[1]/div[2]/div/table'
-    driver.get(url)
+    id_set = set()
+    print("Start json deserialization")
+    for player_data in tqdm(players):
+        id = player_data.get("ID")
+        url = player_url(id)
+        name = player_data.get("Name")
+        city = player_data.get("Location")
+        rating = player_data.get("Rating")
+        rank = player_rank(rating)
+        last_game_date = player_data.get("LastUpdate")
+        last_game_date = timezone.datetime.fromisoformat(last_game_date[:-1]) if last_game_date else None
+
+        Player.objects.update_or_create(
+            id=id,
+            defaults={
+                'name': name,
+                'url': url,
+                'city': city,
+                'rating': rating,
+                'rank': rank,
+                'last_game_date': last_game_date,
+
+            }
+        )
+        id_set.add(id)
     
-    wait = WebDriverWait(driver, 10)
-    select_element = wait.until(lambda driver: Select(driver.find_element(By.XPATH, select_xpath)))
-    
-    players_id = set()
-    if "За всё время" in [o.text for o in select_element.options]:
-        select_element.select_by_visible_text("За всё время")
+    print("Start getting statistics")
+
+    for id in tqdm(id_set):
+        url = player_statistics_url(id)
+
+        response = requests.get(url)
+        response.raise_for_status()
+        data = response.json()
+
+        stats = data.get("Statistics")
+        tournaments = stats.get("Tournaments")
+        games = stats.get("Games")
+        Player.objects.update_or_create(
+            id=id,
+            defaults={
+                'tournaments': tournaments,
+                'games': games,
+            }
+        )
+
+    print("Players updating done")
         
-        WebDriverWait(driver, 25).until(EC.presence_of_element_located((By.XPATH, table_xpath)))
-        soup = BeautifulSoup(driver.page_source, 'html.parser')
-        table = soup.find("tbody")
-        rows = table.find_all('tr')
-        
-        for row in rows:
-            cells = row.find_all('td')
-            id = cells[1].find('a', {"class": ""})["href"].split('/')[-1]
-            city = cells[2].text
-            if city in valid_city:
-                players_id.add(id)
-    return players_id
+
+def player_statistics_url(id):
+    return f"https://sputnik-go.com/api/v1/profile/{id}"
 
 
-def get_player_url(id):
-    return f"https://gofederation.ru/players/{id}"
+def player_url(id):
+    return f"https://sputnik-go.com/players/{id}"
 
-
-def get_player_info(driver, url):    
-    try:
-        driver.get(url)
-        info = {
-            "name": driver.find_element(By.XPATH, "/html/body/div/div/div[2]/div/div/div[1]").text,
-            "city": driver.find_element(By.XPATH, "/html/body/div/div/div[2]/div/div/div[1]/span").text,
-            "rating": driver.find_element(By.XPATH, "/html/body/div/div/div[2]/div/div/div[2]/div[1]/div[2]").text,
-            "rank": driver.find_element(By.XPATH, "/html/body/div/div/div[2]/div/div/div[2]/div[2]/div[2]").text,
-            "tournaments": driver.find_element(By.XPATH, "/html/body/div/div/div[2]/div/div/div[2]/div[3]/div[2]").text,
-            "games": driver.find_element(By.XPATH, "/html/body/div/div/div[2]/div/div/div[2]/div[4]/div[2]").text,
-            #"last_game_date": driver.find_element(By.XPATH, "/html/body/div/div/div[3]/div/div/div[1]/div[4]/table/tbody/tr[1]/td[1]/span/time[1]").get_attribute("datetime"),
-            "url": url,
-        }
-        if info["name"].find('_') > 0:
-            info["name"] = info["name"][:info["name"].find('_')]
-        if info["name"].find('(') > 0:
-            info["name"] = info["name"][:info["name"].find(' (')]
-        info["city"] = info["city"].replace('(', '').replace(')', '')
-        info["rank"] = info["rank"].replace('d', ' дан').replace('k', ' кю')
-        info["games"] = info["games"].replace(' ', '')
-        info["rating"] = info["rating"].replace(' ', '')
-        info["tournaments"] = info["tournaments"].replace(' ', '')
-        print("cool")
-    except Exception as e:
-        print("Exception:")
-        print(e)
-        info = None
-    return info
-
-
-def update_player(driver, id, valid_city, new_player):
-    url = get_player_url(id)
-    player_info = get_player_info(driver, url)
-    if player_info is not None:
-        print(player_info)
-        if new_player and (not player_info["city"] in valid_city):
-            return False
-        else:
-            player, created = Player.objects.update_or_create(id=id, defaults=player_info)
-            return created
-        
 
 def get_valid_city():
     City = apps.get_model('main', 'City')
     return City.objects.filter(deleted=False).values_list("name", flat=True)
-    
 
-def run(*args):
-    print(args)
 
+def player_rank(rating):
+    rank = ""
+    if rating < 600:
+        rank = f"{30 - rating//60} кю"
+    elif rating < 2100:
+        rank = f"{20 - (rating-600)//75} кю"
+    elif rating < 3000:
+        rank = f"{(rating - 2000)//100} дан"
+    return rank
+
+
+def run():
     valid_city = get_valid_city()
-    
-    options = Options()
-    options.add_argument('--headless=new')
-    driver = webdriver.Chrome(options=options)
-    
-    old_players_set = set(Player.objects.values_list('id', flat=True))
-    
-    if args:
-        new_players_set = set(args)
-        id_set = set(args)
-
-    else:
-        new_players_set = parse_players_id(driver, valid_city)
-        id_set = new_players_set.union(old_players_set)
-    
-    for id in id_set:
-       print(id)
-       new_player = (id in new_players_set) and not (id in old_players_set)
-       update_player(driver, id, valid_city, new_player)
-    
-    driver.quit()
+    url = "https://sputnik-go.com/api/v1/players?loc=155&sort=rating"
+    fetch_and_save_players(url)
